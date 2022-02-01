@@ -13,9 +13,12 @@ Forked from @unixorn to work with Colima
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 ## Table of Contents
 
-- [Description](#description)
-- [Installation](#installation)
-  - [Dependencies](#dependencies)
+- [colima-xbar-plugin](#colima-xbar-plugin)
+  - [Table of Contents](#table-of-contents)
+  - [Description](#description)
+    - [Screen shots](#screen-shots)
+  - [Installation](#installation)
+    - [Dependencies](#dependencies)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -41,7 +44,7 @@ This plugin is compatible with [xbar](https://xbarapp.com/) and [SwiftBar](https
 
 ## Installation
 
-Copy `lima-plugin` to `~/Library/Application\ Support/xbar/plugins/lima-plugin.30s`, or run `make install`
+Copy `colima-plugin` to `~/Library/Application\ Support/xbar/plugins/colima-plugin.30s`, or run `make install`
 ### Dependencies
 
 - [xbar](https://xbarapp.com/) or [SwiftBar](https://github.com/swiftbar/SwiftBar) - Both allow you to make custom menubar apps with simple scripts.
