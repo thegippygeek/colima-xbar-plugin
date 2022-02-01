@@ -17,7 +17,7 @@
 # Dependencies:
 #   colima - https://github.com/abiosoft/colima
 #   jq - https://stedolan.github.io/jq/
-#   Forked from https://github.com/unixorn/lima-xbar-plugin 
+#   Forked from https://github.com/unixorn/lima-xbar-plugin
 
 import argparse
 import json
@@ -31,13 +31,13 @@ import sys
 # import syslog
 
 # Running VM color (default green)
-# RUNNING_VM_COLOR = "#035956"
-RUNNING_VM_COLOR = "#00917c"
+RUNNING_VM_COLOR = "#035956"
+# RUNNING_VM_COLOR = "#00917c"
 
 
 # Stopped VM color (default red)
-# STOPPED_VM_COLOR = "#ff0033"
-STOPPED_VM_COLOR = "#960018"
+STOPPED_VM_COLOR = "#ff0033"
+# STOPPED_VM_COLOR = "#960018"
 
 VERSION = "1.3.3"
 
@@ -95,7 +95,7 @@ def parseCLI():
     parser.add_argument("--pull-new-image", action="store_true")
     parser.add_argument(
         "--vm-action",
-        choices=["start", "stop", "lima","colima"],
+        choices=["start", "stop", "lima", "colima"],
         help="Action to perform on vm",
     )
     cliArgs = parser.parse_args()
@@ -203,15 +203,16 @@ def listContainers(vm: str = "default"):
     raw = jsonCommand(command=command, env=env)
     for container in raw:
         try:
-            if container["Names"] != "":  
+            if container["Names"] != "":
                 if "k8s_" not in container["Names"]:
                     key = container["Names"]
-            # else:
-            #     key = container["ID"]
+                    # else:
+                    #     key = container["ID"]
                     containers[key] = container
         except KeyError:
             logging.error("Bad container record: %s", container)
     return containers
+
 
 def listK8sContainers(vm: str = "default"):
     """
@@ -397,6 +398,7 @@ def limaCommand(vm: str):
     else:
         displayAlert(title="Error!", message="No nerdctl command specified")
 
+
 def colimaCommand(vm: str):
     """
     Run an arbitrary command with lima
@@ -418,8 +420,9 @@ def colimaCommand(vm: str):
     else:
         displayAlert(title="Error!", message="No command specified")
 
+
 def vmOps(action: str, vm: str = "colima"):
-    """ 
+    """
     Handle VM operations
 
     :param str action: What action to run - should be start or stop
@@ -436,7 +439,6 @@ def vmOps(action: str, vm: str = "colima"):
 
     if action == "colima":
         colimaCommand(vm=vm)
-        
 
     if action in ["start", "stop"]:
         command = ["colima", action, vm]
@@ -501,14 +503,14 @@ def aboutMenu():
     ).stdout.decode("utf-8")
     colimaVersion = subprocess.run(
         ["colima", "version"], stdout=subprocess.PIPE, env=env
-        ).stdout.decode("utf-8")
+    ).stdout.decode("utf-8")
 
     print("%s" % colimaVersion.strip())
     print("About…")
     print("-- colima home | href=https://github.com/abiosoft/colima")
     print("-- colima-xbar version: %s" % VERSION)
     print("-- force rescan | bash=colima param1=list terminal=false refresh=true")
-   
+
 
 def vmContainerSubMenu(vm: str = "colima"):
     """
@@ -600,11 +602,13 @@ def vmImageSubMenu(vm: str = "colima"):
             f'------ rm | bash="{plugin_f}" param1=--vm param2={vm} param3=--image-action=rm param4=--target={image} terminal=false refresh=true'
         )
 
+
 def vmK8sMenu(vm: str = "colima"):
     """
     Generate menu for Kubernetes Actions
     """
     print("-- K8s ")
+
 
 def vmMenu(vmData: dict = {}):
     """
