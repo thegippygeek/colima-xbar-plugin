@@ -1,10 +1,10 @@
 i: format install
 install: format
-	cp lima-plugin ~/Library/Application\ Support/xbar/plugins/lima-plugin.10s
+	cp colima-plugin ~/Library/Application\ Support/xbar/plugins/colima-plugin.10s
 
 l: lint
 lint:
-	shellcheck lima-plugin
+	shellcheck colima-plugin
 
 r: requirements
 requirements:
@@ -12,9 +12,9 @@ requirements:
 
 f: format
 format:
-	black lima-plugin *.py
+	black colima-plugin *.py
 
 t: test
 test: format
-	poetry run ./lima-plugin
+	poetry run ./colima-plugin
 
