@@ -1,5 +1,7 @@
 # colima-xbar-plugin
 
+Forked from @unixorn to work with Colima
+
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 ![Awesomebot](https://github.com/unixorn/lima-xbar-plugin/actions/workflows/awesomebot.yml/badge.svg)
 ![Superlinter](https://github.com/unixorn/lima-xbar-plugin/actions/workflows/superlinter.yml/badge.svg)
@@ -18,7 +20,7 @@
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 
-[Lima](https://github.com/lima-vm/lima) is an alternative to using Docker Desktop on your Mac.
+[Colima](https://github.com/abiosoft/colima) is an alternative to using Docker Desktop on your Mac.
 
 ## Description
 
